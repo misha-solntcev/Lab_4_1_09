@@ -34,10 +34,17 @@ namespace Lab_4_1_09
                 }                
             Console.WriteLine($"index={index}, max={max}");
 
-            for (int i = index + 1; i < array.Length; i++)            
+            /*for (int i = index + 1; i < array.Length; i++)
                 array[i] = 0;
             foreach (var item in array)
-                Console.Write(item + " ");            
+                Console.Write(item + " ");*/
+
+            // Linq
+
+            var ind = Array.IndexOf(array, array.Max());
+            var res = array.Select((x, i) => i <= ind ? x : 0);            
+            foreach (var item in res)
+                Console.Write(item + " ");
 
             Console.ReadKey();
         }
